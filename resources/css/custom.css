@@ -1,0 +1,64 @@
+/*Author: Phani Kumar Narina*/
+/* Description: Changed Owl corousal to ui-bootstrap tabs and applied some changes. */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	border: none;
+}
+
+.nav-tabs>li{
+	font-weight: 600;
+	display: block;
+	text-align: center;
+	width: 350px;
+}
+
+#tab0,#tab1,#tab2,#tab3,#tab4,#tab5{
+	font-weight: 600;
+	display: block;
+	width: auto;
+}
+
+.nav-tabs>li.active {
+	border-bottom: 2px solid black;
+}
+
+.tab-content{
+	padding: 20px;
+}
+
+/*@Dpk1707 css for faq ui-bootstrap accordion */
+
+.uib-panel-default {
+ border-color: none; 
+ border-bottom: 1px solid #cccccc;
+}
+
+.uib-panel-default .panel-title > a{
+  color: #003365;
+  font-size: 12px;
+  margin: 0;
+  padding: 5px;
+  display: block;
+  font-weight: 600;
+}
+
+#child-faq {
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: justify;
+  word-wrap: break-word;
+}
+
+.uib-panel-body > dl > dd {-moz-border-bottom-colors:none;-moz-border-left-colors:none;-moz-border-right-colors:none;-moz-border-top-colors:none;background:none !important;border-image:none;border-left:0 none;border-right:0 none;border-top:0 none;float:none;padding: 12px 15px 0;background: #f1f1f1 !important;}
+.uib-panel-body p {font-size:10px; margin-bottom:0px;}
+.uib-panel-body > dl > dd > ul.list-none li {position:relative; /* min-height: 60px*/; padding:10px 0 13px}
+.uib-panel-body > dl > dd > ul.list-none li a { font-size: 15px; color: #000000; text-decoration: none; display: block; height: 100%; width: 100%; }
+.uib-panel-body > dl > dd > ul.list-none li + li { border-top: 1px solid #cccccc; }
+
+.mandatory {
+  color: red;
+}
+
+#login{
+  margin-top: 20px;
+}

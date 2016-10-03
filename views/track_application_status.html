@@ -1,0 +1,95 @@
+<div class="wrapper">
+  <!-- Sub Header @ Page level -->
+  <header class="sub-pg-header">
+    <ul>
+      <li class="sub-nav-btn"><a ui-sref="home"><i class="fa-back"></i></a></li> 
+      <li class="page-tl"><h4>Passport Status Updated</h4></li>
+      <li><a ui-sref="passport-status-history" class="btn orange-btn pull-right">View History</a></li>
+    </ul> 
+  </header>
+      
+  <!-- MAIN_CONTENT starts -->	
+  <div class="main-content" ng-init="getApplicationStatus()">
+      <ul class="search-res-info-list">
+          <li><b>{{wrf}}</b></li>
+          <li>Ordinary Booklet - 36 pages  </li>
+          <li>Re-issue of Passport - Normal </li>
+          <li>Miscellaneous Services</li>
+      </ul>
+      <div class="day-nav">
+          <div class="status-message-box typ2">
+              <span>{{Date | date : "medium"}}</span>
+              <div class="status">
+                  <span class="circle red-circle">
+                      <i class="fa-check"></i>
+                  </span>
+                  <h4 class="txt-red">On Hold</h4>
+              </div>
+              <p>{{StatusMsg}}</p>
+          </div>
+      </div>
+      <br>
+      <div class="table-responsive">
+          <table class="table no-border col-3">
+              <thead>
+                  <tr>
+                      <th>Document <br>Name</th>
+                      <th>Original / <br>Copy</th>
+                      <th>Remarks</th>
+                  </tr>
+              </thead>
+              <tr>
+                  <td>CKGS Online Payment Receipt</td>
+                  <td>01 Original</td>
+                  <td>Is Missing</td>
+              </tr>
+              <tr>
+                  <td>Photographs</td>
+                  <td>07 Original</td>
+                  <td>You need to send a new photo matching your current appearance.</td>
+              </tr>
+          </table>
+      </div>
+      <div class="container">
+          <div class="section-wrapper"> 
+             <div class="sub-section">
+                <h4 class="txt-upper">Shipping</h4>
+                <p>You can send your document by purchasing your  Shipping service at <a href="https://passport.in.ckgs.us/shipping" class="uline">https://passport.in.ckgs.us/shipping</a> </p>
+			  <p>Use the Shipping label generated on the CKGS website to send the documents.</p> 
+             </div>
+             <div class="sub-section">
+                <h4 class="txt-upper">Important Note on FedEx shipping through CKGS:</h4>
+                 <b class="txt-smaller">DO’S</b>
+                <ul class="imp-notes">
+                    <li>Please go to a FedEx Office location to send documents. Log onto - <a href="www.fedex.com/locate/index.html?#start" class="uline">www.fedex.com/locate/index.html?#start</a> <br>to locate your nearest FedEx location.</li>
+                    <li>At FedEx, only use the packaging to send you document <br><img src="resources/images/common/fedex-img.jpg" class="img-responsive fedex-img" alt=""></li>
+                    <li>Weight of the package should be less than 0.5Lbs.</li>
+                    <li>Only 1 Application per package.</li>
+                </ul>
+             </div>
+             <div class="sub-section">
+                <b class="txt-smaller">DONT's</b>
+                <ul class="imp-notes">
+                    <li><b class="donot">DO NOT</b> request a pickup by FedEx.</li>
+                    <li><b class="donot">DO NOT</b> ship using any other packaging.</li>
+                    <li><b>If more than one</b> applications are sent, then the application will be <b>on hold</b> till the balance reimbursable payments are paid.</li>
+                    <li>If you have used your <b>own prepaid labels</b>, we cannot take any responsibility of pick-up and delivery to you. The Shipping Service Providers often do not acknowledge receipt of the envelopes. Nor will CKGS drop off your prepaid envelopes to your shipping service provider as you have not bought the shipping service from us. </li>
+                    <li><b>FedEx Prepaid Envelopes</b> sent by you are <b class="">NOT</b> accepted. </li>
+                </ul>
+             </div>
+          </div>
+      </div>
+  </div>
+  <!-- MAIN_CONTENT starts --> 
+</div>
+
+<!-- footer starts -->
+<footer class="app-footer" data-ng-include="'views/commonfooter.html'">
+  
+</footer>
+<!-- footer ends -->
+    
+<!-- Footer :: Starts -->
+    <!-- footer starts -->
+<div class="splash-bg"></div>
+<!-- footer ends -->

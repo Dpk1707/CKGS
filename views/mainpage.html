@@ -1,0 +1,59 @@
+<div class="logout splash">
+	<div class="wrapper">
+		<!-- header starts -->
+		<header class="master-header" data-ng-include="'views/globalHeader.html'">
+			
+		</header>
+		<!-- header ends -->
+
+		<!-- MAIN_CONTENT starts -->	
+		<div class="main-content center-block">
+			<div class="container">
+				<form class="login-form" name="ckgsloginform" ng-submit="login(CKGSDataRequest,ckgsloginform.$valid)" novalidate>
+				  	<div class="form-group" show-errors>
+					    <label for="wrn">Web Reference Number <span class="mandatory">*</span></label>
+
+					    <input type="text" class="form-control" id="WRPN" name="wrn" ng-model="CKGSDataRequest.WebRefNo" placeholder="Enter Web Reference Number" required>
+
+					    <small class="help-block text-danger" ng-if="ckgsloginform.wrn.$error.required && ckgsloginform.wrn.$dirty">
+		        			This field is required
+		      			</small>
+				  	</div>
+
+					<div class="form-group">
+					    <label for="CPIN">Current Indian Passport Number</label>
+					    <input type="text" class="form-control" id="CPIN" name="cipn" ng-model="CKGSDataRequest.Passport" placeholder="Enter Current Indian Passport Number"/>
+					</div>
+
+					<div class="form-group" show-errors>
+				  		<label for="date">Date of Birth <span class="mandatory">*</span></label>
+				  		<datepicker date-format="yyyy-MM-dd" selector="form-control">
+				  		<input type="text" class="form-control" id="date" name="date" ng-model="CKGSDataRequest.DateOfBirth" required>
+				  		</datepicker>
+				  		<small class="help-block text-danger" ng-if="ckgsloginform.date.$error.required && ckgsloginform.date.$dirty">
+		        			This field is required
+		      			</small>
+		            </div>
+				  			  
+				  	<button type="submit" class="btn btn-primary btn-gradient txt-upper" ng-disabled="!ckgsloginform.$error || !ckgsloginform.$dirty">Continue</button>
+				</form>
+			</div>
+		</div>
+		<!-- MAIN_CONTENT starts -->
+	</div>
+
+	<!-- Footer :: Starts -->
+	<!-- footer starts -->
+		<div class="splash-bg"></div>
+	<!-- footer ends -->
+
+	<!-- Road block pop up starts -->
+	<div id="rate-our-app" class="white-popup-block mfp-hide">
+		<div class="rate-our-app-img"><img src="resources/images/rate-our-app.jpg" alt=""></div>
+		<h4>Rate Our App</h4>
+		<p>If you enjoying using CKGS App, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!</p>
+		<a href="#" class="btn">Rate Now</a>
+		<a href="#" class="btn gray-btn">Maybe Later</a>
+		<a href="#" class="btn gray-btn mfp-close">No Thanks</a>
+	</div>
+</div>

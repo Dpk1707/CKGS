@@ -1,0 +1,89 @@
+<div class="wrapper">
+    <header class="sub-pg-header" ng-init="appCenterList();">
+        <ul>
+            <li class="sub-nav-btn"><a ui-sref="home"><i class="fa-back"></i></a></li>  
+            <li><h4>CKGS Application Center ({{selectedName}})</h4></li> 
+            <li class="sub-nav-btn">
+                <a class="fa-ellipsis-v top-menu"></a>
+                <ul class="app-center-list" style="display:none">
+                    <li><a href="#" ng-repeat=" appCenter in locationCenters" ng-click="change(appCenter)">{{appCenter.Jurisdiction.location}}</a></li>
+                </ul>
+            </li>
+        </ul> 
+    </header>
+    <!-- MAIN_CONTENT starts -->    
+    <div class="main-content">
+        <uib-tabset class="hrz-tabs-02">
+            <uib-tab heading="ADDRESS" id="tab0" active="isaddressActive">
+                <div class="tab-content">
+                    <address>
+                        <b>{{address.Address1}}</b>
+                        <p>{{address.Address2}}<br>
+                        {{address.City}},<br>
+                        {{address.State}},{{address.Zipcode}},<br>
+                        {{address.Country}}</p>
+                    </address><br>
+                    <address>
+                        <b>CKGS Customer Service</b>
+                        <p>Please call the following numbers:<br>(213) 213-5019</p>
+                    </address>
+                    <a class="btn-view-map" ng-click="getLocation('bar',address)"><i class="fa-map-marker"></i> <span class="uline">View Map</span></a>
+                    <hr>
+                    <h4 class="txt-upper">Jurisdiction</h4>
+                    <b class="sub-ttl">Include States: </b>
+                    <ul class="imp-notes type2">
+                        <li ng-repeat=" state in StateList">{{state}}</li>
+                    </ul>
+                </div>
+            </uib-tab>
+
+            <uib-tab heading="Hours of Operations" id="tab1">
+                <div class="tab-content">
+                        <p class="lg-txt">Passport Application Center operates from Monday to Friday (except <a ui-sref="holiday-list" class="uline">Holidays</a>) </p><br>
+                        <div class="table-responsive top-bdr">
+                            <table class="table table-condensed no-border">
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Time</th>
+                                    <th>Working-Day</th>
+                                </tr>
+                                <tr ng-repeat="time in operation">
+                                    <td>{{time.Name}}</td>
+                                    <td><b>{{time.Time}}</b></td>
+                                    <td>{{time.WorkingDay}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <p class="red-txt">Applicants should note that the Washington DC center shall only open at <b>9 AM</b>. Applicants will <b>not be allowed</b> inside the building or in the building lobby prior to <b>9 AM</b>. Applicants are requested not to arrive at our application center <b>prior to 9 AM</b> as this is causing a lot of inconvenience to other tenants in the building. </p>
+                </div> 
+            </uib-tab>
+
+            <uib-tab heading="Important Information" id="tab2">
+                <div class="tab-content">
+                    {{info}}
+                </div>
+            </uib-tab>
+
+            <uib-tab heading="parking Facility" id="tab3" ng-click="initMap('foo',address)">
+                <div class="tab-content">
+                    <h4 class="blue-txt">Parking Facility</h4>
+                    <p>There is metered parking available outside the application centre. Parking outside the application centre is at the owner's risk. A parking garage is located behind our building on 24th Street, the cost for parking is $17.00.</p><br>
+                    <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY">
+                        <ng-map id="foo" lazy-init="true" center="{{parkingSlots}}" zoom="11" style="width:600px; height:400px">
+                            <marker position="{{lat}},{{lon}}"></marker>
+                        </ng-map>
+                    </div>
+
+                </div>
+            </uib-tab>
+        </uib-tabset>   
+    </div>
+    <!-- MAIN_CONTENT starts --> 
+</div>
+<!-- footer starts -->
+
+
+<!-- footer script starts -->
+  <!-- footer starts -->
+<div class="splash-bg"></div>
+<!-- footer ends -->

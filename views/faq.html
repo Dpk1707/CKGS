@@ -1,0 +1,82 @@
+<div class="wrapper">
+    <!-- Sub Header @ Page level -->
+    <header class="sub-pg-header"> 
+        <ul>
+            <li class="sub-nav-btn"><a ui-sref="home"><i class="fa-back"></i></a></li> 
+            <li class="page-tl"><h4>Passport FAQs</h4></li> 
+        </ul> 
+    </header>
+        
+    <!-- MAIN_CONTENT starts -->  
+    <div class="main-content" ng-init="getFaqList();">
+        <div id="faq-list">
+            <!-- Main Array -->
+            <uib-accordion close-others="parent">
+            <div uib-accordion-group class="uib-panel-default" is-open="status.open" ng-repeat="(key, obj) in faqData">
+                <!-- main Heading Start -->
+                <uib-accordion-heading class="panel-title">
+                   {{key}} <i class="pull-right glyphicon" ng-class="{'fa fa-chevron-up': status.open, 'fa fa-chevron-down': !status.open}"></i>
+                </uib-accordion-heading>
+                <!-- main Heading End -->
+
+                <!-- Main Body Start -->
+                <div class="uib-panel-body">
+                    <uib-accordion close-others="child1">
+                        <div uib-accordion-group class="uib-panel-default" is-open="status1.open1" ng-repeat="(key1, obj1) in obj track by $index" ng-init="parentIndex = $index">
+                            <uib-accordion-heading>
+                                ({{$index+1}}) {{key1}} <i class="pull-right glyphicon" ng-class="{'fa fa-sort-asc': status1.open1, 'fa-sort-desc': !status1.open1}"></i>
+                            </uib-accordion-heading>
+                            <div class="uib-panel-body">
+                                <ul class="accordion-style faqslist">
+                                    <li>
+                                        <dl>
+                                            <dd>
+                                               <ul class="list-none">
+                                                  <li ng-repeat= "question in obj1"><a href="#" class="qsn" ng-click="viewDetails(obj1,$index)">({{parentIndex+1}}.{{$index+1}}) {{question.question}}</a></li>
+                                               </ul>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+                                <!-- <uib-accordion close-others="child2">
+                                    <div uib-accordion-group class="panel panel-default" is-open="status2.open2" ng-repeat= "question in obj1">
+                                        <uib-accordion-heading>
+                                            ({{parentIndex+1}}.{{$index+1}}) {{question.question}} <i class="pull-right glyphicon" ng-class="{'fa fa-minus': status2.open2, 'fa fa-plus': !status2.open2}"></i>
+                                        </uib-accordion-heading>
+                                        <div class="panel-body" id="child-faq">
+                                            <p ng-bind-html-unsafe="snippet"></p>
+                                        </div>
+                                    </div>
+                                </uib-accordion> -->
+                                <!-- <div class="panel panel-default"  ng-repeat= "question in obj1">
+                                    <div class="panel-heading">
+                                        <p><b></b>({{parentIndex+1}}.{{$index+1}}) <a href="#"  ng-click="viewDetails(obj1,$index)">{{question.question}}</a></p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </uib-accordion>
+                </div>
+                <!-- Main Body Start -->
+            </div>
+            </uib-accordion>
+            <!-- Main Array -->
+        </div>
+        <!-- End faq-list -->
+    </div>
+    <!-- MAIN_CONTENT starts --> 
+</div>
+<!-- footer script starts -->
+<!-- footer starts -->
+<div class="splash-bg"></div>
+<!-- footer ends -->
+
+<!-- Road block pop up starts -->
+<div id="rate-our-app" class="white-popup-block mfp-hide">
+    <div class="rate-our-app-img"><img src="resources/images/rate-our-app.jpg" alt=""></div>
+    <h4>Rate Our App</h4>
+    <p>If you enjoying using CKGS App, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!</p>
+    <a href="#" class="btn">Rate Now</a>
+    <a href="#" class="btn gray-btn">Maybe Later</a>
+    <a href="#" class="btn gray-btn mfp-close">No Thanks</a>
+</div>

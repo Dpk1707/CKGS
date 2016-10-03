@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="ckgsPWA">
+    <head>
+        <meta charset="utf-8">
+        <title>CKGS USA - Passport</title>
+        <!-- Header Css and Script :: starts -->
+        <meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1">
+        <link rel="manifest" href="manifest.json">
+        <!-- Header Css and Script :: starts -->
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <link href="bower_components/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet" type="text/css" />
+        <link href="resources/css/plugin.css" rel="stylesheet" type="text/css" media="all"/>
+        <!-- icons -->
+
+        <!-- Custom styles for this template -->
+        <link href="resources/css/style.css" rel="stylesheet">
+        <link href="resources/css/media.css" rel="stylesheet">
+        <link href="resources/css/custom.css" rel="stylesheet">
+        <!--[if lt IE 9]> <script src="resources/js/ie/respond.min.js"></script> <![endif]-->
+
+        <!-- <script type="text/javascript" src="resources/js/jquery.min.js"></script> -->
+
+        <!-- Header Css and Script :: starts -->
+        <!-- Header Css and Script :: Ends -->
+    </head>
+    <body ui-view>
+
+        <!-- <script src="resources/js/jquery.min.js"></script> -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="resources/js/modernizr-2.6.2.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+        <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script> -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+        <script src="bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+        <script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY"></script> -->
+        <script src="resources/js/plugins.js"></script>
+        <script src="resources/js/main.js"></script>
+        <script src="resources/js/app.js"></script>
+        <script src="resources/js/constants.js"></script>
+        <script src="resources/js/directives.js"></script>
+        <script src="resources/js/restservices.js"></script>
+        <script src="resources/js/controllers/logoutCtrl.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./serviceWorker.js').then(function() {
+                    console.log('Service Worker Registered');
+                });
+            }
+            $('.popup-inline').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+            $(document).ready(function() {
+                $('.top-menu').click(function() {
+                    $('.app-center-list').toggle();
+                });
+
+                $('#CKGS-Application-Center-tab').owlCarousel({margin: 0, loop: false, autoWidth: true});
+
+                $("#holiday-list-tab").owlCarousel({margin: 5, autoWidth: true});
+
+            });
+        </script>
+        <!-- Road block pop up starts -->
+        <!-- Footer :: Ends -->
+    </body>
+</html>

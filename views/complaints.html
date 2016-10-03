@@ -1,0 +1,38 @@
+<div class="wrapper">
+	<!-- Sub Header @ Page level -->
+    <header class="sub-pg-header"> 
+        <ul>
+           <li class="sub-nav-btn"><a ui-sref="home"><i class="fa-back"></i></a></li> 
+           <li class="page-tl"><h4>Complaint</h4></li>
+        </ul> 
+    </header>
+	<!-- MAIN_CONTENT starts -->	
+	<div class="main-content feedback-complaint">
+	    <div class="container">
+	        <form name="ckgsComplaintform" ng-submit="sendComplaint(CKGSDataRequest,ckgsComplaintform.$valid)" novalidate>
+		    	<div class="form-group" show-errors>
+				    <label for="Message" class="control-label"><strong>Comments</strong></label>
+				    <textarea rows="5" name="Message" ng-model="CKGSDataRequest.Message" placeholder="Enter comments here!" required></textarea>
+				    <small class="help-block text-danger" ng-if="ckgsComplaintform.Message.$error.required && ckgsComplaintform.Message.$dirty">
+	        			This field is required
+	      			</small>
+				</div>
+				<div class="form-group">
+					<div class="button-container">
+				   		<button type="submit" class="btn btn-primary btn-gradient" ng-disabled="!ckgsComplaintform.$error || !ckgsComplaintform.$dirty">submit</button>
+					</div>
+				</div>
+		    </form>
+	    </div>
+	</div>
+	<!-- MAIN_CONTENT starts --> 
+	</div>
+	<!-- footer starts -->
+	<footer class="app-footer" data-ng-include="'views/commonfooter.html'">
+
+	</footer>
+   	<!-- footer script starts -->
+    
+    <!-- footer starts -->
+	<div class="splash-bg"></div>
+	<!-- footer ends -->

@@ -1,0 +1,20 @@
+<div class="wrapper">
+	<header class="sub-pg-header"> 
+		<ul>
+			<li  class="sub-nav-btn"><a ui-sref="ckgs-application-center"><i class="custom-close"></i></a></li> 
+			<li class="page-tl"><h4>Map</h4></li>
+		</ul> 
+	</header>
+	<!-- MAIN_CONTENT starts -->
+	<div class="main-content" map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY">
+		<ng-map id="bar" center="{{newAddress}}" zoom="11" style="width:600px; height:400px">
+	      <marker position="{{newAddress}}" title="{{getAddress}}"></marker>
+	    </ng-map>
+	</div>
+	<!-- MAIN_CONTENT starts --> 
+</div>
+	<!-- footer starts -->
+   <!-- footer script starts -->
+      <!-- footer starts -->
+<div class="splash-bg"></div>
+<!-- footer ends -->
