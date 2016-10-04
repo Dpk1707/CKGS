@@ -9,31 +9,15 @@
     </header>
     
     <!-- MAIN_CONTENT starts -->  
-    <div class="main-content track-shipipng-status">
-        <uib-tabset class="hrz-tabs-02">
-            <uib-tab heading="FEDEX SHIPPING" active="isFedexTabActive">
-                <div class="feedback-form" style="padding:50px;">
-                    <form class="form-group">
-                        <div class="feedback-form">
-                            <input type="text" class="form-control" placeholder="Airway Bill Number" />
-                            <input type="text" class="form-control" placeholder="Current Indian Passport Number" />
-                            <a href="#" class="btn btn-primary btn-gradient txt-upper">check status</a>
-                        </div>
-                    </form>
-                </div>
-            </uib-tab>
-            <uib-tab heading="OTHER SHIPPING" active="isOtherTabActive">
-                <div class="feedback-form" style="padding:50px;">
-                    <form class="form-group">
-                        <div class="feedback-form">
-                            <input type="text" class="form-control" placeholder="Other Bill Number" />
-                            <input type="text" class="form-control" placeholder="Current Indian Passport Number" />
-                            <a href="#" class="btn btn-primary btn-gradient txt-upper">check status</a>
-                        </div>
-                    </form>
-                </div>
-            </uib-tab>
-        </uib-tabset>
+    <div class="main-content track-shipipng-status" ng-init="getStatus()">
+        <div class="row">
+            <dl class="dl-horizontal">
+              <dt>WebReferenceNo</dt>
+              <dd>{{WebReferenceNo}}</dd>
+              <dt>ShippingDetails</dt>
+              <dd>{{}}</dd>
+            </dl>
+        </div>
     </div>
   <!-- MAIN_CONTENT starts --> 
 </div>

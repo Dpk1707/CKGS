@@ -71,6 +71,13 @@ ckgs.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $url
     }
   })
 
+   .state('track-shipping-status-received',{
+      url: "/track-shipping-status-received",
+      templateUrl: "views/track-shipping-status-received.html",
+      data: {pageTitle: 'track-shipping-status-received'},
+      controller: "track_shippingController"
+  })
+  
   .state('faq', {
       url: "/faq",
       templateUrl: "views/faq.html",
@@ -128,12 +135,34 @@ ckgs.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $url
 
   .state('privacy-policy',{
     url: "/privacy-policy",
-    templateUrl: "views/privacyPolicy.html"
+    templateUrl: "views/privacyPolicy.html",
+    data: {pageTitle: 'privacy-policy'},
+      controller: "privacy-policyController",
+      resolve: {
+      deps: ['$ocLazyLoad', function($ocLazyLoad) {
+        return $ocLazyLoad.load({
+          files: [
+            'resources/js/controllers/privacy-policyCtrl.js'
+          ]
+        });
+      }]
+    }
   })
 
   .state('terms-and-conditions',{
     url: "/terms-and-conditions",
-    templateUrl: "views/terms-and-conditions.html"
+    templateUrl: "views/terms-and-conditions.html",
+    data: {pageTitle: 'terms-and-conditions'},
+      controller: "termsandconditionController",
+      resolve: {
+      deps: ['$ocLazyLoad', function($ocLazyLoad) {
+        return $ocLazyLoad.load({
+          files: [
+            'resources/js/controllers/termsandconditionCtrl.js'
+          ]
+        });
+      }]
+    }
   })
 
   .state('holiday-list', {

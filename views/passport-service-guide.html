@@ -2,7 +2,7 @@
   <!-- Sub Header @ Page level -->
   <header class="sub-pg-header"> 
     <ul>
-     <li  class="sub-nav-btn"><a ui-sref="faq"><i class="custom-close"></i></a></li> 
+     <li class="sub-nav-btn"><a ui-sref="faq"><i class="custom-close"></i></a></li> 
      <li class="page-tl"><h4>Passport Services Guide</h4></li>
     </ul> 
   </header>
@@ -12,9 +12,7 @@
       <div class="question-wrapper">
          <span>Q.</span> {{question}}
       </div>
-      <!-- <p ng-bind-html="snippet"></p> -->
-      <p ng-bind-html="Answer"></p>
-      <!-- <p>{{answer}}</p> -->
+      <p ng-bind-html="renderHTML(answer)"></p>
   </div>
     <!-- MAIN_CONTENT starts --> 
 </div>

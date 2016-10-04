@@ -20,7 +20,9 @@ controller('track_applicationController', ['$rootScope','$scope', '$window', '$s
 			}
 			else if(data.data.CKGSDataResponse.AvailableStatus == 1){
 				$scope.wrf= localStorageService.get("WRF");
-				$scope.latest = data.data.CKGSDataResponse.StatusDetails.Visa.slice(-1).pop();
+				$scope.latest = data.data.CKGSDataResponse.StatusDetails.Visa;
+				$scope.currentProperty = $scope.latest.pop();
+				console.log($scope.currentProperty);
 				$scope.Date = $scope.latest.Date;
 				$scope.StatusMsg = $scope.latest.StatusMsg;
 			}

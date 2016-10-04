@@ -11,7 +11,13 @@ angular.module('ckgsPWA.constants', [])
 		// URL for Get Application Status
     	trackApplicationStatus:testUrl+"/getMobAppStatus",
     	// URL for FeedBack & Complaint
-    	updateStatus:testUrl+"/updateFeedBackComplaint",
+    	updateStatus:testUrl+"/saveFeedbackComplaint",
+    	// URL for Track Shiping Status
+    	trackShippingStatus : testUrl+"/getShippingStatus",
+    	// URL for Holiday List
+    	getHolidayList : testUrl+"/getHolidayList",
+    	// URL FOR T&C AND PrivacyPolicy
+    	documentation : testUrl+"/getContent",
     	// Validation Key
     	testValidationKey:"cck56wed5cvfg"
     }
