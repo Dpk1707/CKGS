@@ -9,7 +9,7 @@ controller('holidayListController', ['$rootScope','$scope', '$window', '$state',
     	config.headers = headers;
 		var url = CONSTANTS.getHolidayList;
 		restServices.restPutType(url,data,config,function(status,res) {
-			console.log(res);
+			$scope.holidayList = res.data.CKGSDataResponse.Jurisdiction;
 		});
 	}
 

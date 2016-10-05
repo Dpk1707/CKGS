@@ -6,8 +6,6 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
     $scope.appCenterList = function(){
       var wrf= localStorageService.get("WRF");
     	$scope.res= localStorageService.get(wrf).data.CKGSDataResponse.AppCenterList;
-    	console.log($scope.res);
-
     	$scope.locationCenters = [];
         var temp;
 		angular.forEach($scope.res, function(value, key){

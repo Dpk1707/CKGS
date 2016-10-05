@@ -34,7 +34,6 @@ controller('faqController', ['$rootScope','$scope','$compile','$parse','$interpo
 		$rootScope.question = data[index].question;
 		$rootScope.Answer = data[index].answer;
 		var nxt = $rootScope.Answer;
-		console.log($rootScope.Answer);
 		$state.go('passport-service-guide');
 	}
 

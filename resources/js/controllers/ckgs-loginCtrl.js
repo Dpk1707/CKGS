@@ -19,12 +19,12 @@ $scope.date = new Date();
 			var url = CONSTANTS.getMobAppStatus;
 			restServices.restPutType(url,data,config,function(status,res) {
 				if (res.data == "" || res.data == undefined){
-					alert("NO DATA Found");
+					swal("NO DATA Found");
 					return;
 				}
 				if (res.data.CKGSDataResponse.AvailableStatus == 0)
 				{
-					alert("Invalid Credentials!");
+					swal("Invalid Credentials!");
 					return;
 				}
 				else if (res.data.CKGSDataResponse.AvailableStatus == 1){
@@ -43,12 +43,12 @@ $scope.date = new Date();
 			    res=localStorageService.get(wrf);
 				if(res!=null){
 			      if (res.data == "" || res.data == undefined){
-			       alert("NO DATA Found");
+			       swal("NO DATA Found");
 			       return;
 			      }
 			      if (res.data.CKGSDataResponse.AvailableStatus == 0)
 			      {
-			       alert("Invalid Credentials!");
+			       swal("Invalid Credentials!");
 			       return;
 			      }
 			      else if (res.data.CKGSDataResponse.AvailableStatus == 1 && loginForm.WebRefNo==wrf){
@@ -58,7 +58,7 @@ $scope.date = new Date();
 			        $state.go("home");
 			      }
 			     }else{
-			      alert("please login online atleast once!");
+			      swal("please login online atleast once!");
 		   }
         }
 	}

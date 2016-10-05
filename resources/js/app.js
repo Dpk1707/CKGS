@@ -55,6 +55,40 @@ ckgs.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $url
     }
   })
 
+  .state('passport-status-history',{
+    url: "/passport-status-history",
+    templateUrl: "views/passport-status-history.html",
+      // controller: "track_applicationController",
+      controller: "status-historyController",
+      resolve: {
+      deps: ['$ocLazyLoad', function($ocLazyLoad) {
+        return $ocLazyLoad.load({
+          files: [
+            'resources/js/controllers/status-historyCtrl.js'
+            // 'resources/js/controllers/ckgs-trackapplicationCtrl.js'
+          ]
+        });
+      }]
+    }
+  })
+
+  .state('passport-status-history-received',{
+    url: "/passport-status-history-received",
+    templateUrl: "views/passport-status-history-received.html",
+      // controller: "track_applicationController",
+      controller: "historyController",
+      resolve: {
+      deps: ['$ocLazyLoad', function($ocLazyLoad) {
+        return $ocLazyLoad.load({
+          files: [
+            'resources/js/controllers/historyCtrl.js'
+            // 'resources/js/controllers/ckgs-trackapplicationCtrl.js'
+          ]
+        });
+      }]
+    }
+  })
+
   .state('track-shipping-status', {
       url: "/track-shipping-status",
       templateUrl: "views/track-shipping-status.html",
@@ -202,16 +236,6 @@ ckgs.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $url
       templateUrl: "views/ckgs-application-location-map.html",
       data: {pageTitle: 'ckgs-application-location-map'},
       controller: "appcenterController"
-  })
-
-  .state('passport-status-history',{
-    url: "/passport-status-history",
-    templateUrl: "views/passport-status-history.html"
-  })
-
-  .state('passport-status-history-received',{
-    url: "/passport-status-history-received",
-    templateUrl: "views/passport-status-history-received.html"
   })
 
 }]);

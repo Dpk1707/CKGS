@@ -9,22 +9,22 @@
     <!-- MAIN_CONTENT starts -->	
     <div class="main-content">			
         <div class="day-nav table-style">
-            <a href="#" class="btns prev table-cell"><i class="fa-arrow-circle-left"></i></a>
-            <h3 class="table-cell ttl-sec">May 18, 2016 Friday</h3>
+            <a href="#" class="btns prev table-cell" ng-click="change(historyList)"><i class="fa-arrow-circle-left"></i></a>
+            <h3 class="table-cell ttl-sec">{{dateReceived | date : "MMM dd , yyyy EEEE"}}</h3>
             <a href="#" class="btns next disabled table-cell"><i class="fa-arrow-circle-right"></i></a>
         </div>
         
         <div class="status-message-box">
             <div class="separator">
-                <span><i class="fa-clock-o"></i> 03:32 pm</span>
+                <span><i class="fa-clock-o"></i> {{dateReceived | date : "h:mm a"}}</span>
             </div>
             <div class="status">
                 <span class="circle green-circle">
                     <i class="fa-check"></i>
                 </span>
-                <h4 class="txt-green">RECEIVED</h4>
+                <h4 class="txt-green">{{statusReceived}}</h4>
             </div>
-            <p>We have <span class="txt-green">‘Received’</span> your Passport Application. The contents are <span class="txt-red">‘unverified’</span>. You can expect a notification advising you of the progress of this outcome.</p>
+            <p ng-bind-html="render2HTML(statusMessage)"></p>
         </div>
     </div>
     <!-- MAIN_CONTENT starts --> 

@@ -7,7 +7,7 @@
         </ul> 
     </header>
       <!-- MAIN_CONTENT starts -->  
-    <div class="main-content">
+    <div class="main-content" ng-init="history()">
         <ul class="list-none table-style status-history-steps">
             <li>
                 <a href="#">
@@ -15,34 +15,14 @@
                     <span class="txt-red"></span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <span class="circle-l red-circle">
-                        <span class=""><b>May 20</b></span>
-                        <span class="">2016</span>
-                        <span class="">Fri</span>
-                    </span>
-                    <span class="txt-red"><i class="fa-check"></i> On Hold</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
+            <li  ng-repeat = "list in historyList track by $index" ng-init="date = StrToDate(list.Date);">
+                <a href="#" ng-click="viewHistory(list)">
                     <span class="circle-l grey-circle">
-                        <span class=""><b>May 19</b></span>
-                        <span class="">2016</span>
-                        <span class="">Thu</span>
+                        <span class=""><b>{{date | date : "MMM d"}}</b></span>
+                        <span class="">{{date | date : "y"}}</span>
+                        <span class="">{{date | date : "EEE"}}</span>
                     </span>
-                    <span class="txt-green"><i class="fa-check"></i> Application 'Verified'</span>
-                </a>
-            </li>
-            <li>
-                <a ui-sref="passport-status-history-received">
-                    <span class="circle-l grey-circle">
-                        <span class=""><b>May 18</b></span>
-                        <span class="">2016</span>
-                        <span class="">Wed</span>
-                    </span>
-                    <span class="txt-green"><i class="fa-check"></i> Application 'Received'</span>
+                    <span class="txt-green"><i class="fa-check"></i>{{list.Status}}</span>
                 </a>
             </li>
         </ul>

@@ -18,14 +18,14 @@
       </ul>
       <div class="day-nav">
           <div class="status-message-box typ2">
-              <span>{{Date | date : "medium"}}</span>
+              <span><b>{{Date | date:"MMM dd , yyyy EEEE , h:mm a"}}</b></span>
               <div class="status">
                   <span class="circle red-circle">
                       <i class="fa-check"></i>
                   </span>
-                  <h4 class="txt-red">On Hold</h4>
+                  <h4 class="txt-red">{{status}}</h4>
               </div>
-              <p>{{StatusMsg}}</p>
+              <p ng-bind-html="renderHTML(StatusMsg)"></p>
           </div>
       </div>
       <br>
