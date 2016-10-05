@@ -60,7 +60,8 @@
 
             <uib-tab heading="Important Information" id="tab2">
                 <div class="tab-content">
-                    {{info}}
+                    <p ng-bind-html="renderHTML(info)"></p>
+                    <span class="text-danger" ng-show="!info">N/A</span>
                 </div>
             </uib-tab>
 

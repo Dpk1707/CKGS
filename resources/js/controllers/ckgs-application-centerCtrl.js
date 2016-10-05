@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('ckgsPWA').
-controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', '$http', '$timeout', 'CONSTANTS', 'restServices', 'localStorageService','NgMap', function($rootScope, $scope, $window, $state, $http, $timeout, CONSTANTS, restServices, localStorageService,NgMap) {
+controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', '$http', '$timeout', 'CONSTANTS', 'restServices', 'localStorageService','NgMap','$sce', function($rootScope, $scope, $window, $state, $http, $timeout, CONSTANTS, restServices, localStorageService,NgMap,$sce) {
     console.log("Im in appcenterController!");
 
     $scope.appCenterList = function(){
@@ -41,10 +41,14 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY";
         $rootScope.getAddress = ""+address.Address1+''+address.Address2+''+address.Country+''+address.State+''+address.City+''+address.Zipcode+"";
         $rootScope.newAddress = ""+address.Address1+''+address.Address2+''+address.City+','+address.State+','+address.Zipcode+"";
-        console.log($rootScope.getAddress);
-        console.log($rootScope.newAddress);
         $state.go("ckgs-application-location-map");
     }
+
+    $scope.renderHTML = function()
+    {
+        var decoded = angular.element('<textarea />').html($scope.info).text();
+        return $sce.trustAsHtml(decoded);
+    };
 
     $scope.initMap = function(mapId,address) {
       $scope.map = NgMap.initMap(mapId);
