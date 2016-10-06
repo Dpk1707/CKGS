@@ -22,6 +22,7 @@ controller('complaintCtrl', ['$rootScope','$scope', '$window', '$state', '$http'
 				else if (res.data.CKGSDataResponse.UpdateStatus == 1)
 				{
 					swal("Success!", ""+res.data.CKGSDataResponse.StatusMsg+"", "success");
+					$scope.CKGSDataRequest = {};
 				}
 			})
 		}
