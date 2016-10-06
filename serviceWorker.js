@@ -95,7 +95,8 @@ var filesToCache = [
   "resources/images/icons/icon-152x152.png",
   "resources/images/icons/icon-192x192.png",
   "resources/images/icons/icon-384x384.png",
-  "resources/images/icons/icon-512x512.png"
+  "resources/images/icons/icon-512x512.png",
+  "resources/fonts/opensans-light-webfont.ttf"
 ];
 
 self.addEventListener('install', function(e) {

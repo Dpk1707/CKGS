@@ -34,7 +34,7 @@ controller('privacy-policyController', ['$rootScope','$scope', '$window', '$stat
 	$scope.offlinePolicy=function(){
 		var res=localStorageService.get("policy");
 			if(res!=null){
-		$scope.description = res.data.CKGSDataResponse.privacy_policy;
+		$scope.description = res.data.CKGSDataResponse.terms_and_conditions;
 	}else{
 		$state.go("home");
 		setTimeout(function(){

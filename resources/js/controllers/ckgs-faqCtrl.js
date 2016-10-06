@@ -16,28 +16,36 @@ controller('faqController', ['$rootScope','$scope','$compile','$parse','$interpo
 		var online = navigator.onLine;
 			if(online===true){
 			restServices.restPutType(url,data,config,function(status,res) {
-				$scope.faqData = res.data.CKGSDataResponse.FAQList;
-				var wrf= localStorageService.get("WRF");
-				var faqs='faqs'+wrf;
-				localStorageService.set(faqs,$scope.faqData);
+				if (res.data==null){
+		     $scope.offlineFAQ();
+		    }
+				else{
+					$scope.faqData = res.data.CKGSDataResponse.FAQList;
+					var wrf= localStorageService.get("WRF");
+					var faqs='faqs'+wrf;
+					localStorageService.set(faqs,$scope.faqData);
+				}
+
 			});
 		} else{
-			   var wrf= localStorageService.get("WRF");
-			   var faqs='faqs'+wrf;
-			   var faqList=localStorageService.get(faqs);
-			   if(faqList!=null){
-			   $scope.faqData = faqList;
-			  }else{
-			   $state.go("home");
-			   setTimeout(function(){
-			         swal("No offline data avaiable.Please enable your mobile network!");
-			      return;
-			   }, 3000);
-			  }
+         $scope.offlineFAQ();
 			}
- 
-	}
 
+	},
+$scope.offlineFAQ=function(){
+	var wrf= localStorageService.get("WRF");
+	var faqs='faqs'+wrf;
+	var faqList=localStorageService.get(faqs);
+	if(faqList!=null){
+	$scope.faqData = faqList;
+ }else{
+	$state.go("home");
+	setTimeout(function(){
+				swal("No offline data avaiable.Please enable your mobile network!");
+		 return;
+	}, 3000);
+ }
+},
 	$scope.viewDetails = function(data,index){
 		$rootScope.question = data[index].question;
 		$rootScope.Answer = data[index].answer;
