@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li  ng-repeat = "list in historyList track by $index" ng-init="date = StrToDate(list.Date);">
-                <a href="#" ng-click="viewHistory(list)">
+                <a href="#" ng-click="viewHistory(list,$index)">
                     <span class="circle-l grey-circle">
                         <span class=""><b>{{date | date : "MMM d"}}</b></span>
                         <span class="">{{date | date : "y"}}</span>

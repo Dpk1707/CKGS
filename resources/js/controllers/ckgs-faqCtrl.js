@@ -21,13 +21,21 @@ controller('faqController', ['$rootScope','$scope','$compile','$parse','$interpo
 				var faqs='faqs'+wrf;
 				localStorageService.set(faqs,$scope.faqData);
 			});
-		}else{
-			var wrf= localStorageService.get("WRF");
-			var faqs='faqs'+wrf;
-			var faqList=localStorageService.get(faqs);
-			$scope.faqData = faqList;
-
-		}
+		} else{
+			   var wrf= localStorageService.get("WRF");
+			   var faqs='faqs'+wrf;
+			   var faqList=localStorageService.get(faqs);
+			   if(faqList!=null){
+			   $scope.faqData = faqList;
+			  }else{
+			   $state.go("home");
+			   setTimeout(function(){
+			         swal("No offline data avaiable.Please enable your mobile network!");
+			      return;
+			   }, 3000);
+			  }
+			}
+ 
 	}
 
 	$scope.viewDetails = function(data,index){

@@ -7,11 +7,11 @@
     </header>
     
     <!-- MAIN_CONTENT starts -->	
-    <div class="main-content" ng-init="historyList()">			
+    <div class="main-content">			
         <div class="day-nav table-style">
-            <a href="#" class="btns prev table-cell" ng-click="change(list)"><i class="fa-arrow-circle-left"></i></a>
+            <a href="#" class="btns prev table-cell" ng-click="change(-1)"><i class="fa-arrow-circle-left"></i></a>
             <h3 class="table-cell ttl-sec">{{dateReceived | date : "MMM dd , yyyy EEEE"}}</h3>
-            <a href="#" class="btns next disabled table-cell"><i class="fa-arrow-circle-right"></i></a>
+            <a href="#" class="btns next table-cell" ng-click="change(1)"><i class="fa-arrow-circle-right"></i></a>
         </div>
         
         <div class="status-message-box">

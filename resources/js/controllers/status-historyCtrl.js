@@ -6,19 +6,18 @@ controller('status-historyController', ['$rootScope','$scope', '$window', '$stat
         return new Date(str);
     }
 
-    $scope.history = function(date){
+    $scope.history = function(){
     	$scope.historyList = localStorageService.get("appStatus");
-        console.log("...........history...........");
         console.log($scope.historyList);
-        return new Date(date);
     }
 
-    $scope.viewHistory = function(data){
+    $scope.viewHistory = function(data,index){
         console.log(data);
     	$state.go('passport-status-history-received');
     	$rootScope.dateReceived = new Date(data.Date);
     	$rootScope.statusReceived = data.Status;
     	$rootScope.statusMessage = data.StatusMsg;
+        $rootScope.currentindex = index;
     }
 
 

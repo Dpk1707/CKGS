@@ -11,15 +11,38 @@ controller('privacy-policyController', ['$rootScope','$scope', '$window', '$stat
 		policyDoc.Passport = localStorageService.get('PassNo');
 		policyDoc.Purpose = "privacy_policy";
 		data.CKGSDataRequest = policyDoc;
+		var online = navigator.onLine;
+	if(online===true){
 		var headers = restServices.getHeaders();
 		var config = {};
     	config.headers = headers;
 		var url = CONSTANTS.documentation;
 		restServices.restPutType(url,data,config,function(status,res) {
 			console.log(res);
+			if(res.data!=null){
+			localStorageService.set("policy",res);
 			$scope.description = res.data.CKGSDataResponse.privacy_policy;
+		}else{
+			$scope.offlinePolicy();
+		}
 		});
+	}else{
+	 $scope.offlinePolicy();
 	}
+
+	},
+	$scope.offlinePolicy=function(){
+		var res=localStorageService.get("policy");
+			if(res!=null){
+		$scope.description = res.data.CKGSDataResponse.terms_and_conditions;
+	}else{
+		$state.go("home");
+		setTimeout(function(){
+					swal("No offline data avaiable.Please enable your mobile network!");
+					return;
+		}, 3000);
+	}
+	},
 
 	$scope.renderHTML = function()
     {
