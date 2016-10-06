@@ -11,11 +11,14 @@
     <!-- MAIN_CONTENT starts -->  
     <div class="main-content track-shipipng-status" ng-init="getStatus()">
         <div class="row">
-            <dl class="dl-horizontal">
+            <div ng-if="status == 0" class="well well-sm mandatory text-center"><b>{{message}}</b></div>
+            <dl class="dl-horizontal" ng-if="status == 1">
               <dt>WebReferenceNo</dt>
               <dd>{{WebReferenceNo}}</dd>
-              <dt>ShippingDetails</dt>
-              <dd>{{}}</dd>
+              <dt>{{fromSource}} :</dt>
+              <dd>{{fromAddress}}</dd>
+              <dt>{{toSource}} :</dt>
+              <dd>{{toAddress}}</dd>
             </dl>
         </div>
     </div>
