@@ -4,13 +4,13 @@ controller('termsandconditionController', ['$rootScope','$scope', '$window', '$s
 
 	$scope.getTerms = function(){
 		var data = {};
-		var feedback= {};
-		feedback.ValidationKey = CONSTANTS.testValidationKey;
-		feedback.WebRefNo = localStorageService.get('WRF');
-		feedback.DateOfBirth = localStorageService.get('DOB');
-		feedback.Passport = localStorageService.get('PassNo');
-		feedback.Purpose = "terms_and_conditions";
-		data.CKGSDataRequest = feedback;
+		var termsAndConditions= {};
+		termsAndConditions.ValidationKey = CONSTANTS.testValidationKey;
+		termsAndConditions.WebRefNo = localStorageService.get('WRF');
+		termsAndConditions.DateOfBirth = localStorageService.get('DOB');
+		termsAndConditions.Passport = localStorageService.get('PassNo');
+		termsAndConditions.Purpose = "terms_and_conditions";
+		data.CKGSDataRequest = termsAndConditions;
 		var headers = restServices.getHeaders();
 		var config = {};
     	config.headers = headers;

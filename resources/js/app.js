@@ -58,14 +58,12 @@ ckgs.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $url
   .state('passport-status-history',{
     url: "/passport-status-history",
     templateUrl: "views/passport-status-history.html",
-      // controller: "track_applicationController",
       controller: "status-historyController",
       resolve: {
       deps: ['$ocLazyLoad', function($ocLazyLoad) {
         return $ocLazyLoad.load({
           files: [
             'resources/js/controllers/status-historyCtrl.js'
-            // 'resources/js/controllers/ckgs-trackapplicationCtrl.js'
           ]
         });
       }]
@@ -75,14 +73,12 @@ ckgs.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $url
   .state('passport-status-history-received',{
     url: "/passport-status-history-received",
     templateUrl: "views/passport-status-history-received.html",
-      // controller: "track_applicationController",
       controller: "historyController",
       resolve: {
       deps: ['$ocLazyLoad', function($ocLazyLoad) {
         return $ocLazyLoad.load({
           files: [
             'resources/js/controllers/historyCtrl.js'
-            // 'resources/js/controllers/ckgs-trackapplicationCtrl.js'
           ]
         });
       }]

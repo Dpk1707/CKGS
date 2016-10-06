@@ -37,11 +37,17 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
       };
 
      $scope.getLocation = function(mapId,address){
+        var online = navigator.onLine;
+        if(online===true){
         $scope.mymap = mapId;
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY";
         $rootScope.getAddress = ""+address.Address1+''+address.Address2+''+address.Country+''+address.State+''+address.City+''+address.Zipcode+"";
         $rootScope.newAddress = ""+address.Address1+''+address.Address2+''+address.City+','+address.State+','+address.Zipcode+"";
         $state.go("ckgs-application-location-map");
+        }
+        else{
+
+        }
     }
 
     $scope.renderHTML = function()
@@ -51,6 +57,8 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
     };
 
     $scope.initMap = function(mapId,address) {
+        var online = navigator.onLine;
+        if(online===true){
       $scope.map = NgMap.initMap(mapId);
       $scope.parkingSlots = ""+address.Address1+''+address.Address2+''+address.City+','+address.State+','+address.Zipcode+"";
         var headers = restServices.getHeaders();
@@ -64,5 +72,9 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
             $scope.lon = $scope.parkingArea.lng;
         });
     }
+    else{
+        
+    }
+}
 
 }]);
