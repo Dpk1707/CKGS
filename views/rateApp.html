@@ -6,9 +6,15 @@
 	</div>
 	<h4>Rate Our App</h4>
 	<p>If you enjoying using CKGS App, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!</p>
-	<a href="#" class="btn">Rate Now</a>
-	<a href="#" class="btn gray-btn">Maybe Later</a>
-	<a href="#" class="btn gray-btn mfp-close">No Thanks</a>
+	<p>
+	<div>
+		<span uib-rating ng-model="x" max="5" state-on="'fa fa-star'" state-off="'fa fa-star-o'" aria-labelledby="custom-icons-1"></span>
+		<b>(<i>Rate:</i> {{x}})</b>
+	</div>
+	</p>
+	<a href="#" class="btn" ng-click="rateCKGS(x)">Rate Now</a>
+	<a href="#" class="btn gray-btn" ng-click="close()">Maybe Later</a>
+	<a href="#" class="btn gray-btn mfp-close" ng-click="close()">No Thanks</a>
 </div>
 </div>
 </div>
