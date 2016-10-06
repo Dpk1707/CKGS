@@ -124,58 +124,11 @@ self.addEventListener('activate', function(e) {
 
 
 //Adding `fetch` event listener
-self.addEventListener('fetch', function (event) {
-  console.info('Event: Fetch');
-
-  var request = event.request;
-
-  //Tell the browser to wait for newtwork request and respond with below
-  event.respondWith(
-    //If request is already in cache, return it
-    caches.match(request).then(function(response) {
-      if (response) {
-        // console.log(response);
-        return response;
-      }
-
-      //if request is not cached, add it to cache
-      return fetch(request).then(function(response) {
-        var responseToCache = response.clone();
-        caches.open(cacheName).then(
-          function(cache) {
-            cache.put(request, responseToCache).catch(function(err) {
-              console.warn(request.url + ': ' + err.message);
-            });
-          });
-
-        return response;
-      });
+self.addEventListener('fetch', function(e) {
+  console.log('[ServiceWorker] Fetch', e.request.url);
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
     })
   );
 });
-
-
-// self.addEventListener('fetch', function(e) {
-//   console.log('[Service Worker] Fetch', e.request.url);
-//   var dataUrl = e.request.url;
-//   console.log("ffgfghf"+e.request.url);
-//   if (e.request.url.indexOf(dataUrl) > -1) {
-//     console.log("ffgghhhhhhhhhhhhhfghf"+dataUrl);
-    
-//     e.respondWith(
-//       caches.open(dataCacheName).then(function(cache) {
-//         return fetch(e.request).then(function(response){
-//           cache.put(e.request.url, response.clone());
-//           return response;
-//         });
-//       })
-//     );
-//   } else {
-//     console.log("bcwwwwwwwwwwwwwww"+dataUrl);
-//     e.respondWith(
-//       caches.match(e.request).then(function(response) {
-//         return response || fetch(e.request);
-//       })
-//     );
-//   }
-// });
