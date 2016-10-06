@@ -4,13 +4,13 @@ controller('privacy-policyController', ['$rootScope','$scope', '$window', '$stat
 
 	$scope.getPolicy = function(){
 		var data = {};
-		var feedback= {};
-		feedback.ValidationKey = CONSTANTS.testValidationKey;
-		feedback.WebRefNo = localStorageService.get('WRF');
-		feedback.DateOfBirth = localStorageService.get('DOB');
-		feedback.Passport = localStorageService.get('PassNo');
-		feedback.Purpose = "privacy_policy";
-		data.CKGSDataRequest = feedback;
+		var policyDoc= {};
+		policyDoc.ValidationKey = CONSTANTS.testValidationKey;
+		policyDoc.WebRefNo = localStorageService.get('WRF');
+		policyDoc.DateOfBirth = localStorageService.get('DOB');
+		policyDoc.Passport = localStorageService.get('PassNo');
+		policyDoc.Purpose = "privacy_policy";
+		data.CKGSDataRequest = policyDoc;
 		var headers = restServices.getHeaders();
 		var config = {};
     	config.headers = headers;
