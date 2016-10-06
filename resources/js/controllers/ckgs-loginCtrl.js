@@ -31,7 +31,6 @@ $scope.date = new Date();
 					var loginStatus={};
 					loginStatus.status=true;
 					localStorage.setItem("login",loginStatus);
-				 	//alert(loginForm.WebRefNo);
 			  		var wrf= localStorageService.get("WRF");
 					localStorageService.set(wrf,res);
 					$state.go("home");

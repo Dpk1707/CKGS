@@ -18,7 +18,6 @@ controller('privacy-policyController', ['$rootScope','$scope', '$window', '$stat
     	config.headers = headers;
 		var url = CONSTANTS.documentation;
 		restServices.restPutType(url,data,config,function(status,res) {
-			console.log(res);
 			if(res.data!=null){
 			localStorageService.set("policy",res);
 			$scope.description = res.data.CKGSDataResponse.privacy_policy;

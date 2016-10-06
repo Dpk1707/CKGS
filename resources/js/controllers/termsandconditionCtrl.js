@@ -18,7 +18,6 @@ controller('termsandconditionController', ['$rootScope','$scope', '$window', '$s
     	config.headers = headers;
 		var url = CONSTANTS.documentation;
 		restServices.restPutType(url,data,config,function(status,res) {
-			console.log(res);
 			if(res.data!=null){
 			localStorageService.set("terms",res);
 			$scope.description = res.data.CKGSDataResponse.terms_and_conditions;

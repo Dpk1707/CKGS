@@ -1,7 +1,6 @@
 'use strict';
 var app = angular.module('ckgsPWA').
 controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', '$http', '$timeout', 'CONSTANTS', 'restServices', 'localStorageService','NgMap','$sce', function($rootScope, $scope, $window, $state, $http, $timeout, CONSTANTS, restServices, localStorageService,NgMap,$sce) {
-    console.log("Im in appcenterController!");
 
     $scope.appCenterList = function(){
       var wrf= localStorageService.get("WRF");
@@ -20,6 +19,8 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
             $scope.StateList = temp.StateList;
             $scope.info = temp.ImportantRemarks;
             $scope.operation = temp.HoursofOperation;
+            $scope.ParkingInfo = temp.ParkingInfo;
+            $scope.WorkingHours = temp.WorkingHours;
         }
     }
 
@@ -29,14 +30,11 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
         $scope.StateList = location.StateList;
      	$scope.info = location.ImportantRemarks;
         $scope.operation = location.HoursofOperation;
+        $scope.ParkingInfo = location.ParkingInfo;
+        $scope.WorkingHours = location.WorkingHours;
     }
 
-    $scope.mycallback = function(map) {
-        $scope.mymap = map;
-        $scope.$apply();
-      };
-
-     $scope.getLocation = function(mapId,address){
+    $scope.getLocation = function(mapId,address){
         var online = navigator.onLine;
         if(online===true){
         $scope.mymap = mapId;
@@ -56,6 +54,12 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
         return $sce.trustAsHtml(decoded);
     };
 
+    $scope.renderData = function()
+    {
+        var decode = angular.element('<textarea />').html($scope.WorkingHours).text();
+        return $sce.trustAsHtml(decode);
+    };
+
     $scope.initMap = function(mapId,address) {
         var online = navigator.onLine;
         if(online===true){
@@ -67,7 +71,6 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
         var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+$scope.parkingSlots+"&key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY";
         restServices.restGetType(url, config, function(status, res) {
             $scope.parkingArea = res.data.results[0].geometry.location;
-            console.log($scope.parkingArea);
             $scope.lat = $scope.parkingArea.lat;
             $scope.lon = $scope.parkingArea.lng;
         });

@@ -9,7 +9,6 @@ controller('track_shippingController', ['$rootScope', '$scope', '$window', '$sta
     	config.headers = headers;
 		var url = CONSTANTS.trackShippingStatus;
 		restServices.restPutType(url,data,config,function(status,res) {
-			console.log(res);
 			$scope.status = res.data.CKGSDataResponse.AvailableStatus;
 			if ($scope.status == 0){
 				$scope.message = res.data.CKGSDataResponse.Error;

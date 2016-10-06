@@ -39,7 +39,7 @@
 
             <uib-tab heading="Hours of Operations" id="tab1">
                 <div class="tab-content">
-                        <p class="lg-txt">Passport Application Center operates from Monday to Friday (except <a ui-sref="holiday-list" class="uline">Holidays</a>) </p><br>
+                        <p class="lg-txt" ng-bind-html="renderData(WorkingHours)"></p><br>
                         <div class="table-responsive top-bdr">
                             <table class="table table-condensed no-border">
                                 <tr>
@@ -68,7 +68,7 @@
             <uib-tab heading="parking Facility" id="tab3" ng-click="initMap('foo',address)">
                 <div class="tab-content">
                     <h4 class="blue-txt">Parking Facility</h4>
-                    <p>There is metered parking available outside the application centre. Parking outside the application centre is at the owner's risk. A parking garage is located behind our building on 24th Street, the cost for parking is $17.00.</p><br>
+                    <p>{{ParkingInfo}}</p><br>
                     <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY">
                         <ng-map id="foo" lazy-init="true" center="{{parkingSlots}}" zoom="11" style="width:600px; height:400px">
                             <marker position="{{lat}},{{lon}}"></marker>
