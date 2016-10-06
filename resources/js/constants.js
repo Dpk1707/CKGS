@@ -18,6 +18,8 @@ angular.module('ckgsPWA.constants', [])
     	getHolidayList : testUrl+"/getHolidayList",
     	// URL FOR T&C AND PrivacyPolicy
     	documentation : testUrl+"/getContent",
+        // URL FOR RATE-APP
+        appRating : testUrl+"/rateMobApp",
     	// Validation Key
     	testValidationKey:"cck56wed5cvfg"
     }
