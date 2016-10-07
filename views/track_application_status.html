@@ -1,15 +1,17 @@
-<div class="wrapper">
+<div class="wrapper" ng-init="getApplicationStatus()">
   <!-- Sub Header @ Page level -->
   <header class="sub-pg-header">
     <ul>
       <li class="sub-nav-btn"><a ui-sref="home"><i class="fa-back"></i></a></li> 
       <li class="page-tl"><h4>Passport Status Updated</h4></li>
-      <li><a ui-sref="passport-status-history" class="btn orange-btn pull-right">View History</a></li>
+      <li ng-if="currentStatus == 1"><a ui-sref="passport-status-history" class="btn orange-btn pull-right">View History</a></li>
     </ul> 
   </header>
       
   <!-- MAIN_CONTENT starts -->	
-  <div class="main-content" ng-init="getApplicationStatus()">
+  <div class="main-content">
+    <div ng-if="currentStatus == 0" class="well well-sm mandatory text-center"><b>NO Data Found!</b></div>
+    <div ng-if="currentStatus == 1">
       <ul class="search-res-info-list">
           <li><b>{{wrf}}</b></li>
           <li>Ordinary Booklet - 36 pages  </li>
@@ -79,6 +81,7 @@
              </div>
           </div>
       </div>
+    </div>
   </div>
   <!-- MAIN_CONTENT starts --> 
 </div>

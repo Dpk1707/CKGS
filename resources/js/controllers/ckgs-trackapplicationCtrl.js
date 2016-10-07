@@ -11,15 +11,16 @@ controller('track_applicationController', ['$rootScope','$scope', '$window', '$s
   var config = {};
      config.headers = headers;
   restServices.restPutType(url,dataReq,config,function(status,data) {
+    $scope.currentStatus = data.data.CKGSDataResponse.AvailableStatus;
    if (data == "" || data == undefined || data.data==null){
     $scope.offlineTrackStatus();
    }
-    if (data.data.CKGSDataResponse.AvailableStatus == 0)
+    if ($scope.currentStatus == 0)
    {
     swal("NO DATA Found");
     return;
    }
-   else if(data.data.CKGSDataResponse.AvailableStatus == 1){
+   else if($scope.currentStatus == 1){
     $scope.wrf= localStorageService.get("WRF");
     var wrf= localStorageService.get("WRF");
     var track='track'+wrf;
