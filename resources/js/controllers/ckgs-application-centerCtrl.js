@@ -21,6 +21,7 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
             $scope.operation = temp.HoursofOperation;
             $scope.ParkingInfo = temp.ParkingInfo;
             $scope.WorkingHours = temp.WorkingHours;
+            $scope.initMap('foo',$scope.address);
         }
     }
 
@@ -32,6 +33,7 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
         $scope.operation = location.HoursofOperation;
         $scope.ParkingInfo = location.ParkingInfo;
         $scope.WorkingHours = location.WorkingHours;
+        $scope.initMap('foo',$scope.address);
     }
 
     $scope.getLocation = function(mapId,address){
@@ -63,6 +65,7 @@ controller('appcenterController', ['$rootScope', '$scope', '$window', '$state', 
     $scope.initMap = function(mapId,address) {
         var online = navigator.onLine;
         if(online===true){
+            $scope.map = "";
       $scope.map = NgMap.initMap(mapId);
       $scope.parkingSlots = ""+address.Address1+''+address.Address2+''+address.City+','+address.State+','+address.Zipcode+"";
         var headers = restServices.getHeaders();

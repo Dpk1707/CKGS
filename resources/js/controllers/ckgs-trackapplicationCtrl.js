@@ -43,6 +43,7 @@ $scope.offlineTrackStatus=function(){
  var data=localStorageService.get(track);
  if(data!=null){
  $scope.statusList = data.data.CKGSDataResponse.StatusDetails.Visa;
+  $scope.currentStatus = data.data.CKGSDataResponse.AvailableStatus;
  localStorageService.set("appStatus",$scope.statusList);
  $scope.latest = data.data.CKGSDataResponse.StatusDetails.Visa[0];
  $scope.Date = new Date($scope.latest.Date);
