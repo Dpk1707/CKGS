@@ -27,9 +27,7 @@
 
 					<div class="form-group" show-errors>
 				  		<label for="date">Date of Birth <span class="mandatory">*</span></label>
-				  		<datepicker date-format="yyyy-MM-dd" selector="form-control">
-				  		<input type="text" class="form-control" id="date" name="date" ng-model="CKGSDataRequest.DateOfBirth" required>
-				  		</datepicker>
+				  		<input type="date" class="form-control" id="date" name="date" ng-model="CKGSDataRequest.DateOfBirth" max="{{date}}" required >
 				  		<small class="help-block text-danger" ng-if="ckgsloginform.date.$error.required && ckgsloginform.date.$dirty">
 		        			This field is required
 		      			</small>

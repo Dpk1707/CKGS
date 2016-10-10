@@ -1,10 +1,12 @@
 'use strict';
 var app = angular.module('ckgsPWA').
-controller('LoginController', ['$rootScope','$scope', '$window', '$state', '$http', '$timeout','CONSTANTS','restServices','localStorageService',function($rootScope, $scope, $window, $state, $http, $timeout, CONSTANTS,restServices,localStorageService) {
-$scope.date = new Date();
+controller('LoginController', ['$rootScope','$scope', '$window', '$state', '$http', '$timeout','CONSTANTS','restServices','localStorageService','$filter',function($rootScope, $scope, $window, $state, $http, $timeout, CONSTANTS,restServices,localStorageService,$filter) {
+	$scope.date = new Date();
+
 	$scope.login = function(loginForm,isValid){
 		if(isValid){
 			var data = {};
+			loginForm.DateOfBirth = $filter('date')(loginForm.DateOfBirth, "yyyy-MM-dd");
 			loginForm.ValidationKey = CONSTANTS.testValidationKey;
 			data.CKGSDataRequest = loginForm;
       		localStorageService.set("RequestObj",data);
