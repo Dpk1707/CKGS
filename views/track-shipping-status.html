@@ -11,7 +11,7 @@
     <!-- MAIN_CONTENT starts -->  
     <div class="main-content track-shipipng-status" ng-init="getStatus()">
         <div class="row">
-            <div ng-if="status == 0" class="well well-sm mandatory text-center"><b>{{message}}</b></div>
+            <p class="text-center text-danger" ng-if="status == 0"><b>{{message}}</b></p>
             <dl class="dl-horizontal" ng-if="status == 1">
               <dt>WebReferenceNo</dt>
               <dd>{{WebReferenceNo}}</dd>
