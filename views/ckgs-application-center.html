@@ -67,14 +67,15 @@
 
             <uib-tab heading="parking Facility" id="tab3" ng-click="initMap('foo',address)">
                 <div class="tab-content">
+                    <div class="row">
                     <h4 class="blue-txt">Parking Facility</h4>
                     <p>{{ParkingInfo}}</p><br>
-                    <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY">
-                        <ng-map id="foo" lazy-init="true" center="{{parkingSlots}}" zoom="11" style="width:600px; height:400px">
-                            <marker position="{{lat}},{{lon}}"></marker>
-                        </ng-map>
+                        <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyBicvxY9eNQi4mxgX6S11fVpttGWTIbcPY">
+                            <ng-map id="foo" lazy-init="true" center="{{parkingSlots}}" zoom="11" style="width:auto; height:auto">
+                                <marker position="{{lat}},{{lon}}"></marker>
+                            </ng-map>
+                        </div>
                     </div>
-
                 </div>
             </uib-tab>
         </uib-tabset>   
