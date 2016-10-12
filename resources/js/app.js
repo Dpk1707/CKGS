@@ -10,7 +10,6 @@ var ckgs = angular.module('ckgsPWA',[
   'LocalStorageModule',
   'ckgsPWA.constants',
   'ckgsPWA.directives',
-  '720kb.datepicker',
   'ngMap'
 ]);
 
